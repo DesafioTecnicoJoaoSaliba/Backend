@@ -1,5 +1,5 @@
 ## Intruções de uso
-- Na raiz do projeto acesse a pasta de infra e rode o arquivo docker-compose
+- Na raiz do projeto acesse a pasta de infra/sqlServer e rode o arquivo docker-compose
    ```
    dokcer-compose up -d 
    ```
@@ -15,7 +15,6 @@
     
 ## Ferramentas e Tecnologias
 - Backend: Java 17+ com Spring Boot 3.2+
-- Banco de Dados: PostgreSQL.
-- Docker para configuração do ambiente de projeto.
+- Banco de Dados: SqlServer 2019.
 - Documentar a API : Swagger.
     - <http://localhost:8080/swagger-ui.html#>

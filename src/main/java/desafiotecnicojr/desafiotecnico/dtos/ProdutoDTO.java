@@ -1,6 +1,6 @@
 package desafiotecnicojr.desafiotecnico.dtos;
 
-import desafiotecnicojr.desafiotecnico.model.Produto;
+import desafiotecnicojr.desafiotecnico.entity.Produto;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
 

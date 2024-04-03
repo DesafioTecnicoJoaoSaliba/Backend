@@ -1,4 +1,4 @@
-package desafiotecnicojr.desafiotecnico.model.user;
+package desafiotecnicojr.desafiotecnico.entity.user;
 
 import enums.UserRole;
 import jakarta.persistence.*;

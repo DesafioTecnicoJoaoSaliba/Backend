@@ -2,7 +2,7 @@ package desafiotecnicojr.desafiotecnico.repositories.user;
 
 
 import desafiotecnicojr.desafiotecnico.dtos.user.UserList;
-import desafiotecnicojr.desafiotecnico.model.user.User;
+import desafiotecnicojr.desafiotecnico.entity.user.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

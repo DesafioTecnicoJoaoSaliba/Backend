@@ -1,7 +1,7 @@
 package desafiotecnicojr.desafiotecnico.service;
 
 import desafiotecnicojr.desafiotecnico.dtos.ProdutoDTO;
-import desafiotecnicojr.desafiotecnico.model.Produto;
+import desafiotecnicojr.desafiotecnico.entity.Produto;
 import desafiotecnicojr.desafiotecnico.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,7 +13,8 @@ import java.time.LocalDateTime;
 @Service
 public class ProdutoService {
 
-    @Autowired private ProdutoRepository produtoRepository;
+    @Autowired
+    private ProdutoRepository produtoRepository;
 
 
     public ProdutoDTO createProduct(ProdutoDTO produtoDTO) {
@@ -24,7 +25,7 @@ public class ProdutoService {
         produto.setDescricao(produtoDTO.getDescricao());
         produto.setValor(produtoDTO.getValor());
         produto.setDthCriacao(LocalDateTime.now());
-        produto =this.produtoRepository.save(produto);
+        produto = this.produtoRepository.save(produto);
 
         return ProdutoDTO.fromEntity(produto);
     }
@@ -33,14 +34,9 @@ public class ProdutoService {
     public ProdutoDTO getProduct(Long id) {
         return produtoRepository.findProdutoDTOById(id);
     }
-    public Page<ProdutoDTO> findProdutoDTO(Pageable pageable,String nome, String descricao) {
-        if(nome != null) {
-            nome = nome.toUpperCase();
-        }
-        if(descricao != null) {
-            descricao = descricao.toUpperCase();
-        }
-        return produtoRepository.findProdutoDTO(nome,descricao,pageable);
+
+    public Page<ProdutoDTO> findProdutoDTO(Pageable pageable, String nome, String descricao) {
+        return produtoRepository.findProdutoDTO(nome, descricao, pageable);
     }
 
     public void deleteProduct(Long id) {

@@ -2,7 +2,7 @@ package desafiotecnicojr.desafiotecnico.service;
 
 
 import desafiotecnicojr.desafiotecnico.dtos.user.UserList;
-import desafiotecnicojr.desafiotecnico.model.user.User;
+import desafiotecnicojr.desafiotecnico.entity.user.User;
 import desafiotecnicojr.desafiotecnico.repositories.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

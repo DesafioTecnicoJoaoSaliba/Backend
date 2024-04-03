@@ -1,4 +1,4 @@
-package desafiotecnicojr.desafiotecnico.model;
+package desafiotecnicojr.desafiotecnico.entity;
 
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -7,15 +7,15 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="produto")
+@Table(name = "produto")
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="nome")
+    @Column(name = "nome")
     private String nome;
-    @Column(name="descricao", columnDefinition = "TEXT")
+    @Column(name = "descricao")
     private String descricao;
 
     @Column(name = "valor")

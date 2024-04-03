@@ -4,7 +4,7 @@ package desafiotecnicojr.desafiotecnico.service;
 import desafiotecnicojr.desafiotecnico.dtos.authentication.AuthenticationRequest;
 import desafiotecnicojr.desafiotecnico.dtos.authentication.AuthenticationResponse;
 import desafiotecnicojr.desafiotecnico.dtos.register.RegisterRequest;
-import desafiotecnicojr.desafiotecnico.model.user.User;
+import desafiotecnicojr.desafiotecnico.entity.user.User;
 import desafiotecnicojr.desafiotecnico.repositories.user.UserRepository;
 import desafiotecnicojr.desafiotecnico.util.JwtUtil;
 import enums.UserRole;

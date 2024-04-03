@@ -1,15 +1,27 @@
 # Database
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/catalago
-    username: catalago
-    password: catalago
+    url: jdbc:sqlserver://localhost:1433;databaseName=master;encrypt=true;trustServerCertificate=true;
+    username: sa
+    password: SqlServer2019!
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform:  org.hibernate.dialect.SQLServerDialect
     show-sql: true
     hibernate:
       ddl-auto: update
 
+#Postgres
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/catalago
+#    username: catalago
+#    password: catalago
+#  jpa:
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
 
 # Logging
 #logging:
