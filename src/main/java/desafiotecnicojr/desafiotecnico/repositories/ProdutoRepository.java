@@ -34,8 +34,8 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
                 produto.dthCriacao
             )
             from Produto produto
-            where (:nome is null or produto.nome like %:nome%)
-            and (:descricao is null or produto.descricao like %:descricao%)
+            where (:nome is null or upper(produto.nome) like %:nome%)
+            and (:descricao is null or upper(produto.descricao) like %:descricao%)
             """)
     Page<ProdutoDTO> findProdutoDTO(@Param("nome") String nome, @Param("descricao") String descricao, Pageable pageable);
 

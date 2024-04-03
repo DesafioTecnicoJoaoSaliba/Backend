@@ -34,6 +34,12 @@ public class ProdutoService {
         return produtoRepository.findProdutoDTOById(id);
     }
     public Page<ProdutoDTO> findProdutoDTO(Pageable pageable,String nome, String descricao) {
+        if(nome != null) {
+            nome = nome.toUpperCase();
+        }
+        if(descricao != null) {
+            descricao = descricao.toUpperCase();
+        }
         return produtoRepository.findProdutoDTO(nome,descricao,pageable);
     }
 
