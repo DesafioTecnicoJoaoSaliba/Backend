@@ -1,0 +1,30 @@
+# Database
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/catalago
+    username: catalago
+    password: catalago
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+
+# Logging
+#logging:
+#  level:
+#    root: info
+#    org.springframework.web: info
+#    org.hibernate: info
+#  server:
+#    error:
+#      include-message: always
+
+# JWT
+jwt:
+  secret: "asplauspintits12324#$%23432"
+  expiration: 100000
+app:
+  cors:
+    allowedOrigins: 'http://localhost:4200'
