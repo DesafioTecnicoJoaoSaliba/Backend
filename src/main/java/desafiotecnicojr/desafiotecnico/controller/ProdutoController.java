@@ -21,22 +21,22 @@ public class ProdutoController {
     }
 
     @PostMapping
-    private ProdutoDTO createProduct(@RequestBody @Valid ProdutoDTO produtoDTO) {
+    public ProdutoDTO createProduct(@RequestBody @Valid ProdutoDTO produtoDTO) {
         return this.produtoService.createProduct(produtoDTO);
     }
 
     @GetMapping("{id}")
-    private ProdutoDTO getProduct(@PathVariable Long id) {
+    public ProdutoDTO getProduct(@PathVariable Long id) {
         return this.produtoService.getProduct(id);
     }
 
     @GetMapping()
-    private Page<ProdutoDTO> findProdutoDTO(@ParameterObject Pageable pageable, @RequestParam(required = false) String nome, @RequestParam(required = false)  String descricao) {
+    public Page<ProdutoDTO> findProdutoDTO(@ParameterObject Pageable pageable, @RequestParam(required = false) String nome, @RequestParam(required = false) String descricao) {
         return this.produtoService.findProdutoDTO(pageable, nome, descricao);
     }
 
     @DeleteMapping("{id}")
-    private void deleteProduct(@PathVariable Long id) {
+    public void deleteProduct(@PathVariable Long id) {
          this.produtoService.deleteProduct(id);
     }
 
