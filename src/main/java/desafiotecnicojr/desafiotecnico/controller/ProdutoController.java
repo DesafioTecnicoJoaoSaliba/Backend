@@ -2,6 +2,7 @@ package desafiotecnicojr.desafiotecnico.controller;
 
 import desafiotecnicojr.desafiotecnico.dtos.ProdutoDTO;
 import desafiotecnicojr.desafiotecnico.service.ProdutoService;
+import jakarta.validation.Valid;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,8 +21,7 @@ public class ProdutoController {
     }
 
     @PostMapping
-    @PutMapping
-    private ProdutoDTO createProduct(ProdutoDTO produtoDTO) {
+    private ProdutoDTO createProduct(@RequestBody @Valid ProdutoDTO produtoDTO) {
         return this.produtoService.createProduct(produtoDTO);
     }
 

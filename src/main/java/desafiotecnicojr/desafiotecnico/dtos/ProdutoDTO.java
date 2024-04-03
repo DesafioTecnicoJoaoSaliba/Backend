@@ -14,6 +14,9 @@ public class ProdutoDTO{
     private @NotNull BigDecimal valor;
     private LocalDateTime dthCriacao;
 
+    public ProdutoDTO() {
+    }
+
     public ProdutoDTO(Long id, String nome, String descricao, BigDecimal valor, LocalDateTime dthCriacao) {
         this.id = id;
         this.nome = nome;
