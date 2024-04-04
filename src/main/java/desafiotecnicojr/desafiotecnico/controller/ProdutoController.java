@@ -1,10 +1,10 @@
 package desafiotecnicojr.desafiotecnico.controller;
 
-import desafiotecnicojr.desafiotecnico.dtos.ProdutoDTO;
+import desafiotecnicojr.desafiotecnico.dtos.produto.input.ProdutoDTO;
+import desafiotecnicojr.desafiotecnico.dtos.produto.output.ProdutoOutput;
 import desafiotecnicojr.desafiotecnico.service.ProdutoService;
 import jakarta.validation.Valid;
 import org.springdoc.core.annotations.ParameterObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +21,7 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public ProdutoDTO createProduct(@RequestBody @Valid ProdutoDTO produtoDTO) {
+    public ProdutoOutput createProduct(@RequestBody @Valid ProdutoDTO produtoDTO) {
         return this.produtoService.createProduct(produtoDTO);
     }
 
@@ -31,7 +31,7 @@ public class ProdutoController {
     }
 
     @GetMapping()
-    public Page<ProdutoDTO> findProdutoDTO(@ParameterObject Pageable pageable, @RequestParam(required = false) String nome, @RequestParam(required = false) String descricao) {
+    public Page<ProdutoOutput> findProdutoDTO(@ParameterObject Pageable pageable, @RequestParam(required = false) String nome, @RequestParam(required = false) String descricao) {
         return this.produtoService.findProdutoDTO(pageable, nome, descricao);
     }
 

@@ -1,9 +1,9 @@
 package desafiotecnicojr.desafiotecnico.controller.authentication;
 
 
-import desafiotecnicojr.desafiotecnico.dtos.authentication.AuthenticationRequest;
-import desafiotecnicojr.desafiotecnico.dtos.authentication.AuthenticationResponse;
-import desafiotecnicojr.desafiotecnico.dtos.register.RegisterRequest;
+import desafiotecnicojr.desafiotecnico.dtos.authentication.input.AuthenticationRequest;
+import desafiotecnicojr.desafiotecnico.dtos.authentication.output.AuthenticationResponse;
+import desafiotecnicojr.desafiotecnico.dtos.user.input.RegisterRequest;
 import desafiotecnicojr.desafiotecnico.service.AuthenticationService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

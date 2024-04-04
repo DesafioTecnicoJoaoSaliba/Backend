@@ -1,6 +1,7 @@
 package desafiotecnicojr.desafiotecnico.repositories;
 
-import desafiotecnicojr.desafiotecnico.dtos.ProdutoDTO;
+import desafiotecnicojr.desafiotecnico.dtos.produto.input.ProdutoDTO;
+import desafiotecnicojr.desafiotecnico.dtos.produto.output.ProdutoOutput;
 import desafiotecnicojr.desafiotecnico.entity.Produto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Repository;
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
     @Query("""
-            select new desafiotecnicojr.desafiotecnico.dtos.ProdutoDTO(
+            select new desafiotecnicojr.desafiotecnico.dtos.produto.output.ProdutoOutput(
             produto.id,
             produto.nome,
             produto.descricao,
@@ -23,10 +24,10 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
             from Produto produto
             where produto.id = :id
             """)
-    ProdutoDTO findProdutoDTOById(Long id);
+    ProdutoOutput findProdutoDTOById(Long id);
 
     @Query("""
-            select new desafiotecnicojr.desafiotecnico.dtos.ProdutoDTO(
+            select new desafiotecnicojr.desafiotecnico.dtos.produto.output.ProdutoOutput(
                 produto.id,
                 produto.nome,
                 produto.descricao,
@@ -37,6 +38,6 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
             where (:nome is null or produto.nome like %:nome%)
             and (:descricao is null or produto.descricao like %:descricao%)
             """)
-    Page<ProdutoDTO> findProdutoDTO(@Param("nome") String nome, @Param("descricao") String descricao, Pageable pageable);
+    Page<ProdutoOutput> findProdutoDTO(@Param("nome") String nome, @Param("descricao") String descricao, Pageable pageable);
 
 }

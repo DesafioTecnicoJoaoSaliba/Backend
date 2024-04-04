@@ -1,4 +1,4 @@
-package desafiotecnicojr.desafiotecnico.dtos.authentication;
+package desafiotecnicojr.desafiotecnico.dtos.authentication.input;
 
 import jakarta.validation.constraints.NotNull;
 

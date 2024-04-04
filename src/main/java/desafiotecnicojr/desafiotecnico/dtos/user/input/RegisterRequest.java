@@ -1,4 +1,4 @@
-package desafiotecnicojr.desafiotecnico.dtos.register;
+package desafiotecnicojr.desafiotecnico.dtos.user.input;
 
 import jakarta.validation.constraints.NotBlank;
 

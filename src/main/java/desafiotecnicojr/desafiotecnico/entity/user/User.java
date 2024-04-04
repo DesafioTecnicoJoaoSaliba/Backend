@@ -1,6 +1,6 @@
 package desafiotecnicojr.desafiotecnico.entity.user;
 
-import enums.UserRole;
+import desafiotecnicojr.desafiotecnico.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

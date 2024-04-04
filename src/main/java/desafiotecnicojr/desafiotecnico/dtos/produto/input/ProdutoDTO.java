@@ -1,4 +1,4 @@
-package desafiotecnicojr.desafiotecnico.dtos;
+package desafiotecnicojr.desafiotecnico.dtos.produto.input;
 
 import desafiotecnicojr.desafiotecnico.entity.Produto;
 import jakarta.validation.constraints.NotNull;
@@ -12,22 +12,16 @@ public class ProdutoDTO{
     private @NotBlank @NotNull String nome;
     private @NotBlank @NotNull String descricao;
     private @NotNull BigDecimal valor;
-    private LocalDateTime dthCriacao;
+
 
     public ProdutoDTO() {
     }
 
-    public ProdutoDTO(Long id, String nome, String descricao, BigDecimal valor, LocalDateTime dthCriacao) {
+    public ProdutoDTO(Long id, String nome, String descricao, BigDecimal valor) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.valor = valor;
-        this.dthCriacao = dthCriacao;
-    }
-
-    public  static ProdutoDTO fromEntity(Produto produto){
-        return new ProdutoDTO(produto.getId(), produto.getNome(), produto.getDescricao(), produto.getValor(), produto.getDthCriacao());
-
     }
 
     public Long getId() {
@@ -60,13 +54,5 @@ public class ProdutoDTO{
 
     public void setValor(BigDecimal valor) {
         this.valor = valor;
-    }
-
-    public LocalDateTime getDthCriacao() {
-        return dthCriacao;
-    }
-
-    public void setDthCriacao(LocalDateTime dthCriacao) {
-        this.dthCriacao = dthCriacao;
     }
 }

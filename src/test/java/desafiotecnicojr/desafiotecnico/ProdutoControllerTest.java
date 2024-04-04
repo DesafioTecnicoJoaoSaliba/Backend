@@ -1,7 +1,8 @@
 package desafiotecnicojr.desafiotecnico;
 
 import desafiotecnicojr.desafiotecnico.controller.ProdutoController;
-import desafiotecnicojr.desafiotecnico.dtos.ProdutoDTO;
+import desafiotecnicojr.desafiotecnico.dtos.produto.input.ProdutoDTO;
+import desafiotecnicojr.desafiotecnico.dtos.produto.output.ProdutoOutput;
 import desafiotecnicojr.desafiotecnico.service.ProdutoService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,8 +12,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -32,8 +31,9 @@ class ProdutoControllerTest {
 
     @Test
     void createProduct() {
-        ProdutoDTO produtoDTO = new ProdutoDTO(1L, "Produto Teste", "Descrição do Produto Teste", BigDecimal.TEN, LocalDateTime.now());
-        when(produtoService.createProduct(produtoDTO)).thenReturn(produtoDTO);
+        ProdutoDTO produtoDTO = new ProdutoDTO(1L, "Produto Teste", "Descrição do Produto Teste", BigDecimal.TEN);
+        ProdutoOutput produtoOutput = new ProdutoOutput(1L, "Produto Teste", "Descrição do Produto Teste", BigDecimal.TEN, LocalDateTime.now());
+        when(produtoService.createProduct(produtoDTO)).thenReturn(produtoOutput);
 
         ProdutoDTO responseEntity = produtoController.createProduct(produtoDTO);
 
@@ -43,8 +43,9 @@ class ProdutoControllerTest {
     @Test
     void getProduct() {
         Long productId = 1L;
-        ProdutoDTO produtoDTO = new ProdutoDTO(productId, "Produto Teste", "Descrição do Produto Teste", BigDecimal.TEN, LocalDateTime.now());
-        when(produtoService.getProduct(productId)).thenReturn(produtoDTO);
+        ProdutoDTO produtoDTO = new ProdutoDTO(1L, "Produto Teste", "Descrição do Produto Teste", BigDecimal.TEN);
+        ProdutoOutput produtoOutput = new ProdutoOutput(1L, "Produto Teste", "Descrição do Produto Teste", BigDecimal.TEN, LocalDateTime.now());
+        when(produtoService.createProduct(produtoDTO)).thenReturn(produtoOutput);
 
         ProdutoDTO responseEntity = produtoController.getProduct(productId);
 
@@ -54,11 +55,11 @@ class ProdutoControllerTest {
     @Test
     void findProdutoDTO() {
         Pageable pageable = Pageable.unpaged();
-        ProdutoDTO produtoDTO = new ProdutoDTO(1L, "Produto Teste", "Descrição do Produto Teste", BigDecimal.TEN, LocalDateTime.now());
-        Page<ProdutoDTO> produtoPage = new PageImpl<>(Collections.singletonList(produtoDTO));
+        ProdutoOutput produtoDTO = new ProdutoOutput(1L, "Produto Teste", "Descrição do Produto Teste", BigDecimal.TEN,LocalDateTime.now());
+        Page<ProdutoOutput> produtoPage = new PageImpl<>(Collections.singletonList(produtoDTO));
         when(produtoService.findProdutoDTO(pageable, null, null)).thenReturn(produtoPage);
 
-        Page<ProdutoDTO> responseEntity =  produtoController.findProdutoDTO(pageable, null, null);
+        Page<ProdutoOutput> responseEntity =  produtoController.findProdutoDTO(pageable, null, null);
 
         assertEquals(produtoPage, responseEntity);
     }

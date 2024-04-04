@@ -1,6 +1,7 @@
 package desafiotecnicojr.desafiotecnico.service;
 
-import desafiotecnicojr.desafiotecnico.dtos.ProdutoDTO;
+import desafiotecnicojr.desafiotecnico.dtos.produto.input.ProdutoDTO;
+import desafiotecnicojr.desafiotecnico.dtos.produto.output.ProdutoOutput;
 import desafiotecnicojr.desafiotecnico.entity.Produto;
 import desafiotecnicojr.desafiotecnico.repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class ProdutoService {
     private ProdutoRepository produtoRepository;
 
 
-    public ProdutoDTO createProduct(ProdutoDTO produtoDTO) {
+    public ProdutoOutput createProduct(ProdutoDTO produtoDTO) {
         Produto produto = new Produto();
         produto.setId(produtoDTO.getId());
 
@@ -27,7 +28,7 @@ public class ProdutoService {
         produto.setDthCriacao(LocalDateTime.now());
         produto = this.produtoRepository.save(produto);
 
-        return ProdutoDTO.fromEntity(produto);
+        return ProdutoOutput.fromEntity(produto);
     }
 
 
@@ -35,7 +36,7 @@ public class ProdutoService {
         return produtoRepository.findProdutoDTOById(id);
     }
 
-    public Page<ProdutoDTO> findProdutoDTO(Pageable pageable, String nome, String descricao) {
+    public Page<ProdutoOutput> findProdutoDTO(Pageable pageable, String nome, String descricao) {
         return produtoRepository.findProdutoDTO(nome, descricao, pageable);
     }
 

@@ -1,4 +1,4 @@
-package desafiotecnicojr.desafiotecnico.dtos.authentication;
+package desafiotecnicojr.desafiotecnico.dtos.authentication.output;
 
 
 public record AuthenticationResponse(
